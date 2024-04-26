@@ -1,0 +1,106 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #d5d9dc;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 50px;
+}
+
+th,
+td {
+  border: 2px solid #5b2929;
+  padding: 8px;
+  text-align: left;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+td {
+  color: #fff7eb;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+th {
+  background-color: #0f0f0f;
+}
+
+tr,
+td:hover {
+  background-color: #545454;
+}
+
+.t1 {
+  background-color: #090934;
+}
+
+.t2 {
+  background-color: #2d2d52;
+}
+
+.subtexto {
+  display: none;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+.search-container {
+  margin-top: 20px;
+  /* Espaçamento entre o campo de busca e a tabela */
+  margin-bottom: 20px;
+  /* Espaçamento entre o campo de busca e a tabela */
+}
+
+#searchInput {
+  padding: 10px;
+  /* Aumenta o preenchimento interno do campo */
+  border: 2px solid #615c5c;
+  /* Adiciona uma borda ao redor do campo */
+  border-radius: 15px;
+  /* Bordas arredondadas */
+  width: 160px;
+  /* Largura do campo de busca */
+}
+
+#searchInput,
+::placeholder {
+  color: black;
+}
+
+#searchInput:focus {
+  outline: none;
+  /* Remove o contorno ao focar */
+}
+
+button {
+  padding: 10px 20px;
+  /* Define o preenchimento interno do botão */
+  border: none;
+  /* Remove a borda padrão do botão */
+  border-radius: 15px;
+  /* Bordas arredondadas */
+  background-color: #26496d;
+  /* Cor de fundo do botão */
+  color: #ffffff;
+  /* Cor do texto do botão */
+  cursor: pointer;
+  /* Altera o cursor ao passar o mouse */
+  transition: background-color 0.3s ease;
+  /* Adiciona uma transição suave de cor de fundo */
+}
+
+button:hover {
+  background-color: #0056b3;
+  /* Altera a cor de fundo ao passar o mouse */
+}

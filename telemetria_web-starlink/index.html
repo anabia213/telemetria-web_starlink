@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alertas de Telemetria - Starlink</title>
+  <link rel="icon" href="/img/logo.jpeg" type="image/x-icon">
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-****" crossorigin="anonymous" />
+
+
+
+</head>
+
+<body>
+  <h1>Resumo de Alertas de Telemetria - Starlink</h1>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar por ID..." onkeyup="searchTable()">
+    <button type="submit"><i class="fas fa-search"></i></button>
+  </div>
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>
+          <h3>ID</h3>
+        </th>
+        <th>
+          <h3>Nome de alerta</h3>
+        </th>
+        <th>
+          <h3>A definição</h3>
+        </th>
+        <th>
+          <h3>Resolução para o alerta</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Linhas da tabela -->
+      <!-- Adicione mais linhas conforme necessário -->
+      <!-- Exemplo de linha -->
+      <tr class="t1">
+        <td>8888</td>
+        <td>ETHERNET SLOW 10MBPS</td>
+        <td>A velocidade do link Ethernet é negociada a 10 Mbps</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Certifique-se de que a porta do dispositivo do cliente
+          está configurada para negociação automática a 1000 Mbps. Utilize um patch cord e conector CAT5e ou superior,
+          garantir também que o equipamento seja compatível com a tecnologia Gigabit.</td>
+        <td class="subtexto">Os kits de alta performance Starlink utilizam por padrão cabo CAT5e, que é suficiente para
+          alcançar 1 Gbps, superando a capacidade do link. Esse alerta em especial chama a nossa atenção, pois tanto o
+          roteador HP quanto o FortiGate possuem interfaces Gigabit. Isso significa que:
+
+
+
+          1 - O cabo que vem da fonte pode estar com algum problema.
+
+          2 - A interface pode estar configurada para 100 Mbps ou inferior.
+
+          3 - O kit Starlink pode estar conectado a outro equipamento diferente do roteador Claro.
+
+
+
+          Todas essas possibilidades são potenciais problemas a serem observados.</td>
+      </tr>
+      <!-- Adicione mais linhas conforme necessário -->
+      <!-- Exemplo de linha -->
+      <tr class="t2">
+        <td>#</td>
+        <td>ETHERNET SLOW 100MBPS (EMBRAGE)</td>
+        <td>A velocidade do link Ethernet é negociada a 100 Mbps</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Certifique-se de que a porta do dispositivo do cliente
+          está configurada para negociação automática a 1000 Mbps. Utilize um patch cord e conector CAT5e ou superior,
+          garantir também que o equipamento seja compatível com a tecnologia Gigabit.</td>
+        <td class="subtexto">Os kits de alta performance Starlink utilizam por padrão cabo CAT5e, que é suficiente para
+          alcançar 1 Gbps, superando a capacidade do link. Esse alerta em especial chama a nossa atenção, pois tanto o
+          roteador HP quanto o FortiGate possuem interfaces Gigabit. Isso significa que:
+
+
+
+          1 - O cabo que vem da fonte pode estar com algum problema.
+
+          2 - A interface pode estar configurada para 100 Mbps.
+
+          3 - O kit Starlink pode estar conectado a outro equipamento diferente do roteador Claro.
+
+
+
+          Todas essas possibilidades são potenciais problemas a serem observados.</td>
+      </tr>
+      <!-- Adicione mais linhas conforme necessário -->
+      <tr class="t1">
+        <td>#</td>
+        <td>POWER SUPPLY THERMAL THROTTLING (EM</td>
+        <td>A fonte de alimentação está sinalizando que está muito quente e perto de desligar</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">A fonte de alimentação está excedendo seu limite térmico
+          de segurança. Como resultado, o Starlink está limitando o uso afim de deixar o power brick esfriar.</td>
+        <td class="subtexto">O termo "thermal throttling" é comumente usado para descrever a redução de desempenho ou
+          até mesmo a suspensão temporária de operações de um dispositivo, com o objetivo de permitir que a temperatura
+          do equipamento retorne a níveis seguros. Isso é feito para evitar danos irreparáveis ao hardware devido ao
+          superaquecimento.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>ATUADOR MOTOR STUCK</td>
+        <td>O motor do atuador Starlink está preso</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">O motor da antena está bloqueado e não é capaz de alinhar
+          a antena Starlink ao ângulo desejado. Isso pode causar desempenho reduzido, ou o Starlink pode não ser capaz
+          de se conectar à rede se a inclinação muito longe do nominal.</td>
+        <td class="subtexto">A tratativa desse alarme conosco se restringe a verificar se existe algum impedimento para
+          que a antena se mova. Se não houver impedimento e o alarme for ativado, orientar o técnico a acionar a
+          garantia. Em caso de recuperação, abrir um chamado com a Starlink. Se não houver nenhuma ação orientada,
+          prosseguir para o campo informando o ocorrido para a devida substituição do kit.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>8838</td>
+        <td>MAST NOT VERTICAL (EM UM</td>
+        <td>O Starlink não é instalado com o mastro dentro de 30 graus da vertical</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Para dispositivos Starlink acionados, o sistema de
+          alinhamento Starlink não é capaz de alinhar a antena Starlink ao ângulo desejado, porque o mastro é maior que
+          30 graus da vertical. Isso pode causar um desempenho ruim, ou o dispositivo Starlink pode não conseguir se
+          conectar à rede, a menos que seja corrigido.</td>
+        <td class="subtexto">Este alarme é devido ao uso de uma base não homologada. Isso não deve ser informado nem ao
+          cliente, muito menos à equipe de suporte da Starlink. Apesar do alarme, é provável que não haja nenhuma
+          consequência para o equipamento ou desempenho. Vou buscar mais orientação sobre o caso.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>DES DE SIN ALGN</td>
+        <td>Incapaz de alinhar à direção de inclinação desejada</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">O dispositivo Starlink é instalado em um local que não é
+          capaz de alinhar a antena ao ângulo desejado. Isso pode causar um desempenho ruim, ou o dispositivo Starlink
+          pode não conseguir se conectar à rede, a menos que seja corrigido.</td>
+        <td class="subtexto">Este alarme é algo que acredito ser muito raro em nossa rede, mas é possível que ocorra se
+          a antena for instalada de cabeça para baixo ou em uma posição que impeça o alinhamento, como por exemplo, em
+          uma base comum montada na parede. Embora pareça algo improvável, já vi casos assim acontecerem.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>POWER DISCONNECT DELECTED (EC)</td>
+        <td>O Starlink detectou que a reinicialização anterior foi causada por uma perda de potência</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">O Starlink irá relatar este alerta ao se recuperar de uma
+          desconexão de energia inesperada.</td>
+        <td class="subtexto">Falha de energia, fiquem atentos a este erro, pois temos muitas instalações com
+          fornecimento de energia precário.
+
+          Nesses casos, devemos, se possível, descartar problemas locais de energia antes de tomar medidas enviar um
+          chamado para o campo ou considerar o problema como sendo do kit Starlink.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>ATHERMAL SHUTDOWN (TABE</td>
+        <td>O Starlink excedeu os limiares máximos de temperatura - precisa de uma reinicialização para se recuperar
+        </td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Verifique fisicamente se o dispositivo Starlink está
+          instalado em um local devidamente ventilado e não exposto a fontes de calor externas, por exemplo, perto de um
+          respiradouro de escape.</td>
+        <td class="subtexto">Outro alarme que acredito que não veremos, está relacionado à temperatura de operação da
+          antena. Ela suporta temperaturas externas de até 50º Celsius. Caso ocorra, aguardar a normalização antes de
+          enviar um chamado para o campo, mas não deixar de abrir um chamado com o suporte da Starlink para confirmar a
+          situação.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>THERMAL_THROTTLE (PETIRO)</td>
+        <td>O Starlink excedeu os limiares de alta temperatura e reduzirá o desempenho para uma temperatura mais baixa
+        </td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Verifique fisicamente se o dispositivo Starlink está
+          instalado em um local devidamente ventilado e não exposto a fontes de calor externas, por exemplo, perto de um
+          respiradouro de escape.</td>
+        <td class="subtexto">Outro alarme que acredito que não veremos está relacionado à temperatura de operação da
+          antena. Ela suporta temperaturas externas de até 50º Celsius. Caso ocorra, aguardar a normalização antes de
+          enviar um chamado para o campo, mas não deixar de abrir um chamado com o suporte da Starlink para confirmar a
+          situação.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>ADESATIVADO NO ATIVO ACCOUNT</td>
+        <td>O serviço está desativado porque a conta ou linha de serviço associada não está ativa</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Verifique se a linha de serviço está ativa e a conta está
+          em boa posição. Certifique-se de que os detalhes de pagamento estejam configurados e que nenhuma fatura não
+          paga em circulação tenha feito com que o serviço fosse desativado.</td>
+        <td class="subtexto">Este alerta é basicamente uma desativação devido a inadimplência. Acredito/espero que nunca
+          venha a ocorrer.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>DESATIVADO TOO FAR FROM SERVICE ADDRESS</td>
+        <td>O serviço está desativado porque o Starlink está muito longe do endereço de serviço</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Atualize o endereço de serviço para retomar o serviço.
+        </td>
+        <td class="subtexto">Este alerta é devido ao cadastro incorreto das coordenadas na linha de serviço, podendo ter
+          vários motivos. Vou tentar lembrar e enumerar, mas tenham em mente o tipo de situação.
+
+
+
+          Em uma ativação:
+
+          1 - Cadastro com coordenadas erradas de forma acidental.
+
+          2 - Tipo de coordenada diferente do Plus Code.
+
+          3 - Técnico informou as coordenadas erradas.
+
+          4 - Técnico está ativando no local errado.
+
+
+
+          Em uma recuperação:
+
+          1 - Roubo do kit.
+
+          2 - Cliente trocou o kit de local, levando para longe.
+
+
+
+          Antes de corrigir as coordenadas, confrontar com o técnico no local as coordenadas corretas e confirmar se ele
+          está no local correto. Uma forma de verificar é pelo povoado em que se encontra no site survey.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>DESATIVADO NO SERVICE IN OCEAN</td>
+        <td>O serviço está desativado porque o Starlink está no oceano sem um serviço que suporte o transporte marítimo
+        </td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">O serviço de atualização planeja um plano de prioridade
+          móvel com dados adicionais ou opte por dados de prioridade móvel se você estiver em um plano móvel e tiver
+          excedido o limite de dados prioritários móveis.</td>
+        <td class="subtexto">Mais um alerta relacionado a prováveis coordenadas erradas: verificar se as coordenadas
+          usadas são realmente o Plus Code correto. Temos um caso no oceano, pois foi cadastrado com coordenadas em
+          formato decimal.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>DESATIVADO INVALID COUNTRY</td>
+        <td>O serviço está desativado porque o Starlink está em um país não suportado</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Se a cobertura do Starlink estiver ativa, faça upgrade
+          para um plano de serviço Mobile Global ou Mobile Priority. Ou opt-in para dados de prioridade móvel.</td>
+        <td class="subtexto">Fique muito atento a este alerta. Se o cliente trocar o kit de local, há casos em que temos
+          alguns kits muito próximos às fronteiras. Se esses kits forem movidos para outro país, corremos o risco de
+          violar o contrato com a SpaceX. Na nossa monitoração, vamos criar algo que nos alerte de forma mais direta
+          caso esse alerta apareça.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>POP CHANGE (TAP)</td>
+        <td>O ponto de presença de Starlink (PoP) mudou. Isso pode causar uma breve desconexão e alteração de endereço
+          IP</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">O ponto de presença do Starlink (PoP) mudou e, como
+          resultado, o Starlink terá um novo endereço IP atribuído para essa região.</td>
+        <td class="subtexto">Acredito que esse alerta nunca será atribuído a um dos nossos kits, mas vou verificar se
+          essa possibilidade existe. Hoje, a Starlink nos forneceu um IP fixo para cada kit.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>DESATIVADO MOVING WHILE NOT MOBILE</td>
+        <td>O serviço está desativado porque o Starlink está se movendo sem um serviço móvel</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Atualize o plano de serviço para um plano de serviço de
+          prioridade móvel. Ou opt-in para dados de prioridade móvel.</td>
+        <td class="subtexto">Este alerta também é possível, por isso fiquem atentos. Ele ocorre quando o kit é instalado
+          em um veículo, o que se tornou muito comum. Existem vídeos na internet ensinando como realizar a alimentação
+          DC para que funcione no carro, além de como desmontar e desligar os motores, entre outros procedimentos. Este
+          alerta também pode levar à quebra de contrato, uma vez que não temos nenhuma autorização para esse tipo de
+          instalação.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>DESACTIVA MOVING TOO FAST</td>
+        <td>O serviço está desativado porque o Starlink está se movendo muito rápido sem um plano de serviço de aviação
+        </td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">O dispositivo Starlink está se movendo mais rápido do que
+          a política configurada permite e o serviço foi desativado. Atualize o plano de serviço para um que suporte
+          velocidades mais altas.</td>
+        <td class="subtexto">Este alerta também é possível, por isso fiquem atentos. Ele ocorre quando o kit é instalado
+          em um veículo, o que se tornou muito comum. Existem vídeos na internet ensinando como realizar a alimentação
+          DC para que funcione no carro, além de como desmontar e desligar os motores, entre outros procedimentos. Este
+          alerta também pode levar à quebra de contrato, uma vez que não temos nenhuma autorização para esse tipo de
+          instalação.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>HIGH SKY OBSTRUÇÃO</td>
+        <td>O Starlink está detectando uma obstrução no campo de visão</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Verifique se o Starlink está em um local desobstruído,
+          verificar em todas as sua visada.</td>
+        <td class="subtexto">Um alerta preocupante, especialmente se o kit não estiver visível no aplicativo. Até o
+          momento, é impossível determinar com precisão o tamanho da obstrução. Ficar atento e, em caso de recuperação,
+          abrir um chamado com o suporte da Starlink e aguardar antes de tomar uma decisão sobre enviar um técnico ao
+          local.</td>
+      </tr>
+
+      <tr class="t2">
+        <td>#</td>
+        <td>HIGH TIME OBSTRUÇÃO</td>
+        <td>O Starlink está detectando uma obstrução frequente no campo de visão</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Verifique se o Starlink está em um local desobstruído,
+          verificar em todas as sua visada.</td>
+        <td class="subtexto">Este é mais um alerta de obstrução. Como mencionado anteriormente, se o kit não estiver
+          visível no aplicativo, não será possível ter uma noção precisa do nível de obstrução. No entanto, este alerta
+          indica que as obstruções estão impactando a conexão por um longo período, resultando em muitos momentos de
+          indisponibilidade do kit.
+
+
+
+          Em caso de recuperação, abrir um chamado com o suporte da Starlink. Antes de enviar alguém ao local, utilizar
+          a resposta do suporte para embasar sua ação.</td>
+      </tr>
+
+      <tr class="t1">
+        <td>#</td>
+        <td>SOFTWARE UPDATE REBOOT PENDING</td>
+        <td>A atualização do software Starlink está pendente e será reiniciado às 3 da manhã, horário local (+/- 30
+          minutos)</td>
+        <td class="resolucao" onclick="mostrarSubtexto(this)">Depois que este alerta é acionado, uma reinicialização
+          manual também atualizará o software se o horário agendado for inconveniente.</td>
+        <td class="subtexto">Para este alerta, não é necessário tomar nenhuma ação. Após o kit baixar a atualização de
+          software, ele ficará aguardando para finalizar a operação durante a madrugada local.</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- Script JavaScript externo -->
+  <script src="script.js"></script>
+</body>
+
+</html>
